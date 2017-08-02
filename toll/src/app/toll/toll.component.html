@@ -14,11 +14,12 @@
       <a href='logout'>Log Out</a>
       <h2>Saved routes:</h2>
       <h4 *ngFor='let toll of tolls'>
-        <span *ngFor='let route of user.routes'>
+        <span *ngFor='let route of user.routes,let idx = index'>
             <span *ngIf='toll.TravelDirection==route.direction && toll.StartLocationName ==route.entry && toll.EndLocationName ==route.exit'>
-              <h5><strong>{{route.name}}</strong></h5>
-              <h6>Toll Rate: <strong>{{toll.CurrentToll | addDecimal | currency: 'USD' :true}}</strong></h6>
+              <h4><strong>{{route.name}}</strong></h4>
+              <h5>Toll Rate: <strong>{{toll.CurrentToll | addDecimal | currency: 'USD' :true}}</strong></h5>
               <h6>Heading <strong>{{toll.TravelDirection}}</strong> from <strong>{{toll.StartLocationName}}</strong> to <strong>{{toll.EndLocationName}}</strong></h6>
+              <button class='btn-xs' (click)='delete(idx)'>Delete Route</button>
             </span>
           </span>
       </h4>

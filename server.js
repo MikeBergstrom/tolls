@@ -7,6 +7,7 @@ var session = require('express-session')
 var bodyParser = require('body-parser');
 // Integrate body-parser with our App
 app.use(bodyParser.json());
+
 // Require path
 var path = require('path');
 // Setting our Static Folder Directory

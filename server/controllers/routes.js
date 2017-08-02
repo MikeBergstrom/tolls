@@ -32,6 +32,13 @@ module.exports = {
         })
     },
 
+    deleteRoute: function(req,res,next){
+        console.log("in controller delete route", req.body._id)
+        Route.remove({_id:req.body._id})
+        .then(() => {console.log("controller delete route success");res.status(200).json(true)})
+        .catch(() => {console.log("controller delete route fail"); res.status(500).json(false)})
+    },
+
     logout: function(req, res, next){
         console.log("controller log off ")
         req.session.destroy()

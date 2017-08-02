@@ -15,6 +15,8 @@ module.exports = function(app) {
     app.post('/register', users.register)
 
     app.post('/saveRoute', routes.saveRoute)
+    
+    app.post('/deleteRoute', routes.deleteRoute)
 
     app.post('/uncheck', users.uncheck)
 

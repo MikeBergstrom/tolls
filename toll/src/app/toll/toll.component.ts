@@ -36,4 +36,13 @@ export class TollComponent implements OnInit {
     this.user.routes.push(this.route)
     this.route = new Route();
   }
+  delete(idx){
+    let route = this.user.routes[idx]; 
+    let status = confirm("Are you sure you want to delete " + route.name+ "?")
+    if(status){
+      this._apiService.deleteRoute(route)
+      .then( () => {console.log("route deleted"); this.user.routes.splice(idx, 1)})
+      .catch( () => {console.log("route delete fail")})
+    }
+  }
 }

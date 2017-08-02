@@ -36,4 +36,9 @@ export class ApiService {
       .map(data=>data.json())
       .toPromise()
     }
+    deleteRoute(route){
+      return this._http.post('deleteRoute', route)
+      .map(data=>data.json())
+      .toPromise()
+    }
 }
